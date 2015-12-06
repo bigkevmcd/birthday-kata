@@ -23,7 +23,7 @@ class EmployeeTest(TestCase):
         employee = Employee(
             "Smith", "John", "1979/01/02", "testing@example.com")
         self.assertTrue(
-            employee.is_birthday(date(2013, 01, 02)), "Failed to match dates")
+            employee.is_birthday(date(2013, 1, 2)), "Failed to match dates")
 
 
 def GreetingTest(TestCase):
@@ -65,7 +65,7 @@ class BirthdayServiceTest(TestCase):
         with mock.patch("smtplib.SMTP", smtp_mock):
             service = BirthdayService()
             employee = Employee(
-                "Smith", "James", "1979/01/02", "testing@example.com")
+                "Smith", "James", "1979/1/2", "testing@example.com")
             greeting = Greeting(employee, "subject", "body")
             service.send_message("localhost", 25, "sender@example.com", greeting)
             # TODO: Convert this to a Message.to_string()
